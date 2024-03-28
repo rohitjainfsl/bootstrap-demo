@@ -1,10 +1,27 @@
+body {
+  font-family: Roboto Slab, sans-serif;
+  font-weight: 400;
+}
 #mainMenu {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
+  transition: all 400ms;
 }
 #mainMenu .navbar-brand img {
   height: 4rem;
 }
+#mainMenu.small {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.8) !important;
+}
+#mainMenu.small .navbar-brand img {
+  height: 3rem;
+}
+.nav-link {
+  font-family: Montserrat, sans-serif;
+}
+
 #hero {
   background-image: url(assets/hero-banner.jpg);
   background-size: cover;
@@ -15,27 +32,65 @@
   text-align: center;
   position: relative;
 }
-#hero::before{
-    position: absolute;
-    content: '';
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255,255,255,0.5);
+#hero::before {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
 }
-#hero h3{
-    font-style: italic;
-    font-size: 2.25rem;
+#hero .container {
+  position: relative;
+}
+#hero h3 {
+  font-style: italic;
+  font-size: 2.25rem;
+  margin-bottom: 2rem;
+  font-family: Roboto Slab;
+}
+#hero h1 {
+  font-size: 4.5rem;
+  margin-bottom: 4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: Montserrat;
+}
+
+.vertical-gap {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+#services h2 {
+  font-size: 2.5rem;
+  font-family: Montserrat;
+  font-weight: 700;
+}
+#services i {
+  font-size: 4rem;
+  width: 120px;
+  height: 120px;
+}
+
+@media all and (max-width: 992px) {
+  #hero {
+    padding-top: 12rem;
+    padding-bottom: 8rem;
+  }
+  #hero h1 {
+    font-size: 3rem;
     margin-bottom: 2rem;
-    font-family: Roboto Slab;
-    position: relative;
+  }
 }
-#hero h1{
-    font-size: 4.5rem;
-    margin-bottom: 4rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    font-family: Montserrat;
-    position: relative;
+@media all and (max-width: 576px) {
+  #hero {
+    padding-top: 12rem;
+    padding-bottom: 8rem;
+  }
+  #hero h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
 }
