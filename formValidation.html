@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Validation</title>
+    <!-- Include jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  </head>
+  <body>
+    <form id="myForm">
+      <label for="name">Name:</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        required
+        minlength="4"
+        maxlength="30"
+      /><br /><br />
+
+      <label for="phone">Phone Number:</label>
+      <input
+        type="tel"
+        id="phone"
+        name="phone"
+        pattern="[0-9]{10}"
+        required
+      /><br /><br />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required /><br /><br />
+
+      <input type="submit" value="Submit" />
+    </form>
+
+    <!-- Vanilla JS for Form Validation -->
+    <script>
+      document
+        .getElementById("myForm")
+        .addEventListener("submit", function (event) {
+          var name = document.getElementById("name").value;
+          var phone = document.getElementById("phone").value;
+          var email = document.getElementById("email").value;
+
+          var nameRegex = /^[A-Za-z\s]{4,30}$/;
+          var phoneRegex = /^\d{10}$/;
+          var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+          if (!nameRegex.test(name)) {
+            alert(
+              "Invalid name! Name should contain only alphabets and spaces, and should be between 4 and 30 characters long."
+            );
+            event.preventDefault();
+            return false;
+          }
+
+          if (!phoneRegex.test(phone)) {
+            alert(
+              "Invalid phone number! Phone number should be exactly 10 digits long."
+            );
+            event.preventDefault();
+            return false;
+          }
+
+          if (!emailRegex.test(email)) {
+            alert("Invalid email address!");
+            event.preventDefault();
+            return false;
+          }
+        });
+    </script>
+
+    <!-- jQuery for Form Validation -->
+    <!-- <script>
+      $(document).ready(function () {
+        $("#myForm").submit(function (event) {
+          var name = $("#name").val();
+          var phone = $("#phone").val();
+          var email = $("#email").val();
+
+          var nameRegex = /^[A-Za-z\s]{4,30}$/;
+          var phoneRegex = /^\d{10}$/;
+          var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+          if (!nameRegex.test(name)) {
+            alert(
+              "Invalid name! Name should contain only alphabets and spaces, and should be between 4 and 30 characters long."
+            );
+            event.preventDefault();
+            return false;
+          }
+
+          if (!phoneRegex.test(phone)) {
+            alert(
+              "Invalid phone number! Phone number should be exactly 10 digits long."
+            );
+            event.preventDefault();
+            return false;
+          }
+
+          if (!emailRegex.test(email)) {
+            alert("Invalid email address!");
+            event.preventDefault();
+            return false;
+          }
+        });
+      });
+    </script> -->
+  </body>
+</html>
