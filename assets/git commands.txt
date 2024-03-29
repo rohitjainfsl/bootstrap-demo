@@ -1,0 +1,9 @@
+git init
+git status
+git add .
+git config --global user.email {your email}
+git config --global user.name {your username}
+git commit -m "first commit"
+git branch -M main
+git remote add origin {link to your repo}
+git push -u origin main
